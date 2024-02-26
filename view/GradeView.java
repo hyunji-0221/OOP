@@ -12,7 +12,7 @@ import serviceImpl.UtilServiceImpl;
 import java.util.Scanner;
 
 public class GradeView {
-    public static void main(String[] args) {
+    public static void main(Scanner sc) {
         System.out.println("다음은 한 학생의 과목 점수이다.");
         System.out.println("이름 : ");
         System.out.println("국어점수 : ");
@@ -20,7 +20,7 @@ public class GradeView {
         System.out.println("수학점수 : ");
         System.out.println("평균 점수를 구하시오");
 
-        Scanner sc = new Scanner(System.in);
+        sc = new Scanner(System.in);
         UtilService util = UtilServiceImpl.getInstance();
         GradeService grade = GradeServiceImpl.getInstance();
 

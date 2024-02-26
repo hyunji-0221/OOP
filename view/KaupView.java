@@ -10,8 +10,8 @@ import serviceImpl.UtilServiceImpl;
 import java.util.Scanner;
 
 public class KaupView {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(Scanner scan) {
+        scan = new Scanner(System.in);
         UtilService util = UtilServiceImpl.getInstance();
 
         UserDTO user = new UserBuilder()
