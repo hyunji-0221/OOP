@@ -1,6 +1,8 @@
 package model;
 
 public class SubjectDTO {
+
+    private int id;
     private int korean;
     private int english;
     private int math;

@@ -25,6 +25,14 @@ public class UtilServiceImpl implements UtilService {
     }
 
     @Override
+    public String createRandomUserName() {
+        String randomName = "";
+        for(; randomName.length() < 5;
+            randomName += String.valueOf((char)('a' + this.createRandomInteger(0, 26))));
+        return randomName;
+    }
+
+    @Override
     public String createRandomName() {
         String[] names = {"엄현지", "마동석", "송강호", "윤여정", "황정민"
                 , "정우성", "이병헌", "현 빈", "유해진", "손석구"

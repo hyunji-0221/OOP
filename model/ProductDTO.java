@@ -1,6 +1,8 @@
 package model;
 
 public class ProductDTO {
+
+    private int id;
     private int pno;
     private String name;
     private String company;
