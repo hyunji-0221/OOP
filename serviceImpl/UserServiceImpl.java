@@ -126,13 +126,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean forChangePwById(String userName) {
-        if (users.containsKey(userName)) {
-            return true;
-        } else {
-            return false;
+    public String changePassword(String userName, String password) {
+        if(users.get(userName) == null) {
+            return "존재하지 않는 아이디입니다.";
+        }else{
+            users.get(userName).setPassword(password);
+            return "비밀번호가 변경되었습니다.";
         }
     }
-
-
 }

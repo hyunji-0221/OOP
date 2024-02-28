@@ -42,7 +42,7 @@ public class UserView {
                     break;
                 case "4":
                     System.out.println("======= 비밀번호변경 =======");
-
+                    System.out.println(ctrl.changePassword(scan));
                     break;
                 case "5":
                     System.out.println("======= 회원탈퇴 =======");

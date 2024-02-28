@@ -95,8 +95,6 @@ public class UserController {
 
     public String changePassword(Scanner scan){
         System.out.println("비밀번호를 변경할 아이디를 입력하세요.");
-        String userName = scan.next();
-
-        return null;
+        return userServ.changePassword(scan.next(), scan.next());
     }
 }

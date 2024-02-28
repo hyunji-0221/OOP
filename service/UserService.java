@@ -25,4 +25,6 @@ public interface UserService {
 
     String login(UserDTO dto);
 
+    String changePassword(String username,String password);
+
 }
