@@ -24,7 +24,7 @@ public class AuthView {
                     return;
                 case "3":
                     System.out.println("=== 회원수 ===");
-                    ctrl.count();
+                    ctrl.countUsers();
                     return;
                 case "2":
                     System.out.println("=== 회원목록 ===");

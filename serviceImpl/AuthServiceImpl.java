@@ -63,7 +63,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public UserDTO findUser(String userName) {
+    public UserDTO findUserById(String userName) {
         UserDTO user = new UserBuilder().build();
         return user;
     }
@@ -74,7 +74,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String count() {
+    public String countUsers() {
         return users.size()+"";
     }
 }

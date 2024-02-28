@@ -17,7 +17,8 @@ public class AuthController {
         return auth.join(scan);
     }
 
-    public String login() {
+    public String login(Scanner scan) {
+        System.out.println("로그인할 ID 입력");
         return auth.login();
     }
 
@@ -26,8 +27,9 @@ public class AuthController {
         return null;
     }
 
-    public UserDTO findUser(String userName) {
-        auth.findUser(userName);
+    public UserDTO findUserById(Scanner scan) {
+        System.out.println("검색할 ID 입력 : ");
+        UserDTO dto = auth.findUserById(scan.next());
         return null;
     }
 
@@ -35,8 +37,8 @@ public class AuthController {
         return auth.getUserMap();
     }
 
-    public String count(){
-        System.out.println("회원수 : "+auth.count()+"명");
-        return auth.count();
+    public String countUsers(){
+        System.out.println("회원수 : "+auth.countUsers()+"명");
+        return auth.countUsers();
     }
 }

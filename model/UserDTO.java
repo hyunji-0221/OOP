@@ -38,10 +38,8 @@ public class UserDTO {
                 ", rrn='" + rrn + '\'' +
                 ", pNum='" + pNum + '\'' +
                 ", address='" + address + '\'' +
-                ", job='" + job + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                '}';
+                ", job='" + job + '\''  +
+                '}'+ "\n";
     }
 
     public String getUserName() {

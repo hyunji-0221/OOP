@@ -3,20 +3,26 @@ package service;
 import model.UserDTO;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 public interface UserService {
-    String join (UserDTO user);
-    String login(UserDTO user);
-    String findUserById(String userName);
-    String updatePassword(UserDTO user);
-    //회원탈퇴
+    String addUsers();
+    String join (UserDTO dto);
+
+    String countUsers();
+    List<UserDTO> userList();
+
+//    Map<String, UserDTO> getUserMap();
+
     String deleteUser(String userName);
 
-    //회원목록
-    List<UserDTO> getUserList();
-    //id검색
-    List<UserDTO> findUsersByName(String name);
-    //직업검색
-    List<UserDTO> findUsersByJob(String job);
-    String countUsers();
+    String findByUserName(String userName);
+
+    List<UserDTO> findByJob(String job);
+
+    List<UserDTO> findByName(String name);
+
+    String login(UserDTO dto);
+
 }
