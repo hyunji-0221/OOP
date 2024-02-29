@@ -11,6 +11,7 @@ public class KaupServiceImpl implements KaupService {
     public static KaupService getInstance(){
         return instance;
     }
+
     @Override
     public String createBMI(UserDTO user)  {
         double height = user.getHeight();

@@ -9,7 +9,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         while(true){
-            System.out.println("0-종료 1-회원관리 2-성적표 3-게시판 4-카우프 5-사용자관리(맵)");
+            System.out.println("0-종료 1-회원관리 2-성적표 3-게시판 4-카우프 5-사용자관리(맵) 6-계좌관리");
 
             switch (scan.next()){
                 case "0" :
@@ -33,7 +33,11 @@ public class Main {
                     break;
                 case "5" :
                     System.out.println("사용자관리(맵)");
-                    UserView.main();
+                    UserView.main(scan);
+                    break;
+                case "6" :
+                    System.out.println("계좌관리");
+                    AccountView.main(scan);
                     break;
                 default:
                     System.out.println("잘못된 입력입니다.");

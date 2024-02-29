@@ -13,8 +13,6 @@ public interface UserService {
     String countUsers();
     List<UserDTO> userList();
 
-//    Map<String, UserDTO> getUserMap();
-
     String deleteUser(String userName);
 
     String findByUserName(String userName);
@@ -25,6 +23,6 @@ public interface UserService {
 
     String login(UserDTO dto);
 
-    String changePassword(String username,String password);
+    String changePassword(UserDTO dto);
 
 }

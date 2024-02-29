@@ -31,7 +31,7 @@ public class UserController {
                 "주민번호 ," +
                 "휴대폰번호 ," +
                 "주소 ," +
-                "직업 \n" );
+                "직업 \n");
         UserDTO userDto = new UserBuilder()
                 .userName(scan.next())
                 .password(scan.next())
@@ -50,41 +50,37 @@ public class UserController {
     }
 
     public List<UserDTO> userList() {
-        for(UserDTO d : userServ.userList()){
-            System.out.print(d);
+        for (UserDTO d : userServ.userList()) {
+            System.out.println(d);
         }
         return userServ.userList();
     }
 
-//    public Map<String, UserDTO> getUserMap(){
-//        return userServ.getUserMap();
-//    }
-
-    public String deleteUser(Scanner scan){
+    public String deleteUser(Scanner scan) {
         System.out.println("탈퇴할 회원아이디을 입력하세요.");
         String userName = scan.next();
         return userServ.deleteUser(userName);
     }
 
-    public String findByUserName(Scanner scan){
+    public String findByUserName(Scanner scan) {
         System.out.println("검색할 회원아이디를 입력하세요.");
         String userName = scan.next();
         return userServ.findByUserName(userName);
     }
 
-    public List<UserDTO> findByJob(Scanner scan){
+    public List<UserDTO> findByJob(Scanner scan) {
         System.out.println("검색할 직업을 입력하세요.");
         String job = scan.next();
-        return  userServ.findByJob(job);
+        return userServ.findByJob(job);
     }
 
-    public List<UserDTO> findByName(Scanner scan){
+    public List<UserDTO> findByName(Scanner scan) {
         System.out.println("검색할 회원이름을 입력하세요.");
         String name = scan.next();
         return userServ.findByName(name);
     }
 
-    public String login(Scanner scan){
+    public String login(Scanner scan) {
         System.out.println("아이디, 비밀번호를 입력하세요.");
         UserDTO dto = new UserBuilder()
                 .userName(scan.next())
@@ -93,8 +89,12 @@ public class UserController {
         return userServ.login(dto);
     }
 
-    public String changePassword(Scanner scan){
+    public String changePassword(Scanner scan) {
         System.out.println("비밀번호를 변경할 아이디를 입력하세요.");
-        return userServ.changePassword(scan.next(), scan.next());
+        return userServ.changePassword(new UserBuilder()
+                .userName(scan.next())
+                .password(scan.next())
+                .build()
+        );
     }
 }

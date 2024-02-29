@@ -2,7 +2,6 @@ package serviceImpl;
 
 import builder.UserBuilder;
 import model.UserDTO;
-import service.AuthService;
 import service.UserService;
 import service.UtilService;
 
@@ -59,12 +58,6 @@ public class UserServiceImpl implements UserService {
         });
         return userList;
     }
-
-//    @Override
-//    public Map<String, UserDTO> getUserMap() {
-//        System.out.println("전체목록출력");
-//        return users;
-//    }
 
     @Override
     public String deleteUser(String userName) {
@@ -125,13 +118,23 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+//    @Override
+//    public String changePassword(String userName, String password) {
+//        if(users.get(userName) == null) {
+//            return "존재하지 않는 아이디입니다.";
+//        }else{
+//            users.get(userName).setPassword(password);
+//            return "비밀번호가 변경되었습니다.";
+//        }
+//    }
+
     @Override
-    public String changePassword(String userName, String password) {
-        if(users.get(userName) == null) {
-            return "존재하지 않는 아이디입니다.";
-        }else{
-            users.get(userName).setPassword(password);
+    public String changePassword(UserDTO dto) {
+        if(users.containsKey(dto.getUserName())){
+            users.get(dto.getUserName()).setPassword(dto.getPassword());
             return "비밀번호가 변경되었습니다.";
+        }else{
+            return "회원이 존재하지 않습니다.";
         }
     }
 }

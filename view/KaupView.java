@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class KaupView {
     public static void main(Scanner scan) {
-        scan = new Scanner(System.in);
         UtilService util = UtilServiceImpl.getInstance();
 
         UserDTO user = new UserBuilder()

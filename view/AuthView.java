@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class AuthView {
     public static void main(Scanner scan) {
-        scan = new Scanner(System.in);
 
         AuthController ctrl = new AuthController();
         ctrl.addUsers();

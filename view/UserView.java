@@ -8,8 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class UserView {
-    public static void main() {
-        Scanner scan = new Scanner(System.in);
+    public static void main(Scanner scan) {
         UserController ctrl = new UserController();
         System.out.println(ctrl.addUsers());
 
@@ -34,7 +33,7 @@ public class UserView {
                     break;
                 case "2":
                     System.out.println("======= 로그인 =======");
-                    System.out.println(ctrl.login(scan  ));
+                    System.out.println(ctrl.login(scan));
                     break;
                 case "3":
                     System.out.println("======= ID검색 =======");

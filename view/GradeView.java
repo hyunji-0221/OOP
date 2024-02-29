@@ -20,7 +20,6 @@ public class GradeView {
         System.out.println("수학점수 : ");
         System.out.println("평균 점수를 구하시오");
 
-        sc = new Scanner(System.in);
         UtilService util = UtilServiceImpl.getInstance();
         GradeService grade = GradeServiceImpl.getInstance();
 
