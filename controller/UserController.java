@@ -1,11 +1,7 @@
 package controller;
 
-import builder.UserBuilder;
-import com.sun.security.jgss.GSSUtil;
-import model.UserDTO;
-import service.AuthService;
+import model.User;
 import service.UserService;
-import serviceImpl.AuthServiceImpl;
 import serviceImpl.UserServiceImpl;
 
 import java.util.*;
@@ -32,7 +28,7 @@ public class UserController {
                 "휴대폰번호 ," +
                 "주소 ," +
                 "직업 \n");
-        UserDTO userDto = new UserBuilder()
+        User user = User.builder()
                 .userName(scan.next())
                 .password(scan.next())
                 .passwordCheck(scan.next())
@@ -42,15 +38,15 @@ public class UserController {
                 .address(scan.next())
                 .job(scan.next())
                 .build();
-        return userServ.join(userDto);
+        return userServ.join(user);
     }
 
     public String countUsers() {
         return userServ.countUsers();
     }
 
-    public List<UserDTO> userList() {
-        for (UserDTO d : userServ.userList()) {
+    public List<User> userList() {
+        for (User d : userServ.userList()) {
             System.out.println(d);
         }
         return userServ.userList();
@@ -68,13 +64,13 @@ public class UserController {
         return userServ.findByUserName(userName);
     }
 
-    public List<UserDTO> findByJob(Scanner scan) {
+    public List<User> findByJob(Scanner scan) {
         System.out.println("검색할 직업을 입력하세요.");
         String job = scan.next();
         return userServ.findByJob(job);
     }
 
-    public List<UserDTO> findByName(Scanner scan) {
+    public List<User> findByName(Scanner scan) {
         System.out.println("검색할 회원이름을 입력하세요.");
         String name = scan.next();
         return userServ.findByName(name);
@@ -82,7 +78,7 @@ public class UserController {
 
     public String login(Scanner scan) {
         System.out.println("아이디, 비밀번호를 입력하세요.");
-        UserDTO dto = new UserBuilder()
+        User dto = User.builder()
                 .userName(scan.next())
                 .password(scan.next())
                 .build();
@@ -91,7 +87,7 @@ public class UserController {
 
     public String changePassword(Scanner scan) {
         System.out.println("비밀번호를 변경할 아이디를 입력하세요.");
-        return userServ.changePassword(new UserBuilder()
+        return userServ.changePassword(User.builder()
                 .userName(scan.next())
                 .password(scan.next())
                 .build()

@@ -1,7 +1,6 @@
 package controller;
 
-import builder.AccountBuilder;
-import model.AccountDTO;
+import model.Account;
 import service.AccountService;
 import serviceImpl.AccountServiceImpl;
 
@@ -18,7 +17,7 @@ public class AccountController {
 
     public String createAccount(Scanner scan) {
         System.out.println("id, acNum, acH, bal");
-        return acServ.createAccount(new AccountBuilder()
+        return acServ.createAccount(Account.builder()
                 .id(scan.nextLong())
                 .accountNumber(scan.next())
                 .accountHolder(scan.next())
@@ -28,7 +27,7 @@ public class AccountController {
     }
 
     public String deposit(Scanner scan) {
-        return acServ.deposit(new AccountBuilder()
+        return acServ.deposit(Account.builder()
                 .id(scan.nextLong())
                 .accountNumber(scan.next())
                 .accountHolder(scan.next())
@@ -38,7 +37,7 @@ public class AccountController {
     }
 
     public String withdraw(Scanner scan) {
-        return acServ.withdraw(new AccountBuilder()
+        return acServ.withdraw(Account.builder()
                 .id(scan.nextLong())
                 .accountNumber(scan.next())
                 .accountHolder(scan.next())
@@ -56,7 +55,7 @@ public class AccountController {
         return acServ.cancelAccount(scan.next());
     }
 
-    public List<AccountDTO> getAccounts() {
+    public List<Account> getAccounts() {
         return acServ.getAccounts();
     }
 }

@@ -1,7 +1,6 @@
 package view;
 
-import builder.ProductBuilder;
-import model.ProductDTO;
+import model.Product;
 import service.UtilService;
 import serviceImpl.UtilServiceImpl;
 
@@ -13,9 +12,9 @@ public class ProductView {
     public static void main(String[] args) {
 
         UtilService util = UtilServiceImpl.getInstance();
-        List<ProductDTO> productList = new ArrayList<>();
+        List<Product> productList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            productList.add(new ProductBuilder()
+            productList.add(Product.builder()
                     .pno(util.createRandomInteger(0, 10))
                     .name(util.createRandomName())
                     .company(util.createRandomCompany())
@@ -23,7 +22,7 @@ public class ProductView {
                     .build());
         }
 
-        Stream<ProductDTO> stream = productList.stream();
+        Stream<Product> stream = productList.stream();
         stream.forEach( p -> {
             System.out.println(p);
         });

@@ -1,7 +1,6 @@
 package serviceImpl;
 
-import builder.UserBuilder;
-import model.UserDTO;
+import model.User;
 import service.UserService;
 import service.UtilService;
 
@@ -9,7 +8,7 @@ import java.util.*;
 
 public class UserServiceImpl implements UserService {
 
-    Map<String, UserDTO> users;
+    Map<String, User> users;
     private static UserService instance = new UserServiceImpl();
 
     public UserServiceImpl() {
@@ -22,11 +21,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String addUsers() {
-        Map<String, UserDTO> map = new HashMap<>();
+        Map<String, User> map = new HashMap<>();
         UtilService util = UtilServiceImpl.getInstance();
         for (int i = 0; i < 5; i++) {
             String userName = util.createRandomUserName();
-            map.put(userName, new UserBuilder()
+            map.put(userName, User.builder()
                     .userName(userName)
                     .password("")
                     .passwordCheck("")
@@ -39,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String join(UserDTO dto) {
+    public String join(User dto) {
         users.put(dto.getUserName(), dto);
         return "회원가입되었습니다.";
     }
@@ -51,8 +50,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> userList() {
-        List<UserDTO> userList = new ArrayList<>();
+    public List<User> userList() {
+        List<User> userList = new ArrayList<>();
         users.forEach((k, v) -> {
             userList.add(v);
         });
@@ -80,8 +79,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> findByJob(String job) {
-        List<UserDTO> userList = new ArrayList<>();
+    public List<User> findByJob(String job) {
+        List<User> userList = new ArrayList<>();
 
         users.forEach((k, v) -> {
             if (job.equals(users.get(k).getJob())) {
@@ -94,8 +93,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> findByName(String name) {
-        List<UserDTO> userList = new ArrayList<>();
+    public List<User> findByName(String name) {
+        List<User> userList = new ArrayList<>();
         users.forEach((k, v) -> {
             if (name.equals(users.get(k).getName())) {
                 userList.add(v);
@@ -105,8 +104,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String login(UserDTO dto) {
-        UserDTO userInMap = users.get(dto.getUserName());
+    public String login(User dto) {
+        User userInMap = users.get(dto.getUserName());
         if (userInMap == null) {
             return "아이디를 다시 입력하세요.";
         } else {
@@ -129,8 +128,10 @@ public class UserServiceImpl implements UserService {
 //    }
 
     @Override
-    public String changePassword(UserDTO dto) {
+    public String changePassword(User dto) {
         if(users.containsKey(dto.getUserName())){
+
+
             users.get(dto.getUserName()).setPassword(dto.getPassword());
             return "비밀번호가 변경되었습니다.";
         }else{

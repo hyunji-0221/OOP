@@ -1,28 +1,26 @@
 package service;
 
-import model.UserDTO;
+import model.User;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 
 public interface UserService {
     String addUsers();
-    String join (UserDTO dto);
+    String join (User dto);
 
     String countUsers();
-    List<UserDTO> userList();
+    List<User> userList();
 
     String deleteUser(String userName);
 
     String findByUserName(String userName);
 
-    List<UserDTO> findByJob(String job);
+    List<User> findByJob(String job);
 
-    List<UserDTO> findByName(String name);
+    List<User> findByName(String name);
 
-    String login(UserDTO dto);
+    String login(User dto);
 
-    String changePassword(UserDTO dto);
+    String changePassword(User dto);
 
 }

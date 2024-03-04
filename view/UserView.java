@@ -1,10 +1,7 @@
 package view;
 
-import controller.AuthController;
 import controller.UserController;
-import model.UserDTO;
 
-import java.util.Map;
 import java.util.Scanner;
 
 public class UserView {

@@ -1,6 +1,6 @@
 package controller;
 
-import model.UserDTO;
+import model.User;
 import service.AuthService;
 import serviceImpl.AuthServiceImpl;
 
@@ -22,18 +22,18 @@ public class AuthController {
         return auth.login();
     }
 
-    public Map<String, UserDTO> addUsers() {
+    public Map<String, User> addUsers() {
         auth.addUsers();
         return null;
     }
 
-    public UserDTO findUserById(Scanner scan) {
+    public User findUserById(Scanner scan) {
         System.out.println("검색할 ID 입력 : ");
-        UserDTO dto = auth.findUserById(scan.next());
+        User dto = auth.findUserById(scan.next());
         return null;
     }
 
-    public Map<String, UserDTO> getUserMap(){
+    public Map<String, User> getUserMap(){
         return auth.getUserMap();
     }
 

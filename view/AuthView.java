@@ -1,8 +1,6 @@
 package view;
 
-import builder.UserBuilder;
 import controller.AuthController;
-import model.UserDTO;
 
 import java.util.Scanner;
 
