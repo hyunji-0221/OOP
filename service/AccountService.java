@@ -10,5 +10,5 @@ public interface AccountService {
     String withdraw(Account dto);
     String getBalance(String accountNumber);
     String cancelAccount(String accountNumber);
-    List<Account> getAccounts();
+    List<?> getAccounts();
 }

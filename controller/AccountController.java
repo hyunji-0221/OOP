@@ -55,7 +55,7 @@ public class AccountController {
         return acServ.cancelAccount(scan.next());
     }
 
-    public List<Account> getAccounts() {
+    public List<?> getAccounts() {
         return acServ.getAccounts();
     }
 }

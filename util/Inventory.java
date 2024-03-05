@@ -3,7 +3,7 @@ package util;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Inventory <T>{
+public class Inventory<T> {
     private ArrayList<T> inventory;
 
     public Inventory(ArrayList<T> inventory) {
